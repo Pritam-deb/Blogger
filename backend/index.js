@@ -3,6 +3,7 @@ import express from "express"
 import dotenv from "dotenv"
 import mongoose from "mongoose"
 import bodyParser from "body-parser"
+import multer from "multer"
 
 
 //Route
@@ -17,7 +18,21 @@ dotenv.config()
 const app = express()
 const PORT = 5000
 
-mongoose.connect(process.env.MONGO_URL, ()=>console.log("Conntected to mongoDB"));
+mongoose.connect(process.env.MONGO_URL, () => console.log("Conntected to mongoDB"));
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, req.body.name)
+  },
+})
+
+const upload = multer({ storage: storage });
+app.post("/api/upload", upload.single("file"), (req, res) => {
+  res.status(200).send("File has been uploaded");
+});
 
 //MIDDLEWARE
 app.use(bodyParser.json())

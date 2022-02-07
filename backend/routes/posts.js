@@ -50,24 +50,24 @@ router.put('/:id', async (req, res) => {
 })
 
 //delete post
-router.delete('/:id', async (req, res) => {
-    if (req.body.userId === req.params.id) {
+router.delete("/:id", async (req, res) => {
+    try {
+      const post = await Post.findById(req.params.id);
+      if (post.username === req.body.username) {
         try {
-            const user = await User.findById(req.params.id);
-            try {
-                await Post.deleteMany({username: user.username})
-                await User.findByIdAndDelete(req.params.id)
-                res.status(201).send("The user has been deleted");
-            } catch (err) {
-                res.status(500).json(err)
-            }
-        } catch (error) {
-            res.status(404).send("User not found")
+          await post.delete();
+          res.status(200).json("Post has been deleted...");
+        } catch (err) {
+          res.status(500).json(err);
         }
-    } else {
-        res.status(401).send("Please only delete your own account")
+      } else {
+        res.status(401).json("You can delete only your post!");
+      }
+    } catch (err) {
+      res.status(500).json(err);
     }
-})
+  });
+  
 
 //get post
 router.get('/:id', async (req, res) => {

@@ -6,7 +6,8 @@ import bodyParser from "body-parser"
 
 
 //Route
-import auth from "./routes/auth.js"
+import authRoute from "./routes/auth.js"
+import userRoute from "./routes/users.js"
 
 
 dotenv.config()
@@ -18,7 +19,8 @@ mongoose.connect(process.env.MONGO_URL, ()=>console.log("Conntected to mongoDB")
 
 //MIDDLEWARE
 app.use(bodyParser.json())
-app.use('/api', auth);
+app.use('/api', authRoute);
+app.use('/api/users', userRoute)
 
 app.get('/', (req, res) => {
   console.log("Backend is running!");

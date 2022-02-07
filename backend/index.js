@@ -9,6 +9,7 @@ import bodyParser from "body-parser"
 import authRoute from "./routes/auth.js"
 import userRoute from "./routes/users.js"
 import postRoute from "./routes/posts.js"
+import categoryRoute from "./routes/categories.js"
 
 
 dotenv.config()
@@ -23,6 +24,7 @@ app.use(bodyParser.json())
 app.use('/api', authRoute);
 app.use('/api/users', userRoute)
 app.use('/api/posts', postRoute)
+app.use('/api/categories', categoryRoute)
 
 app.get('/', (req, res) => {
   console.log("Backend is running!");

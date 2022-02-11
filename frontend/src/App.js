@@ -4,6 +4,7 @@
 import NavBar from './components/NavBar';
 import Homepage from "./pages/Home/Homepage";
 import Login from './pages/login/Login';
+import Register from './pages/register/Register';
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
     
     <NavBar/>
     {/* <Homepage/> */}
-    <Login/>
+    {/* <Login/> */}
+    <Register/>
 
     </div>
       

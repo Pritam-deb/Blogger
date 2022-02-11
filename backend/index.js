@@ -36,7 +36,7 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
 
 //MIDDLEWARE
 app.use(bodyParser.json())
-app.use('/api', authRoute);
+app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute)
 app.use('/api/posts', postRoute)
 app.use('/api/categories', categoryRoute)

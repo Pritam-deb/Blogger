@@ -2,6 +2,7 @@
 import Header from "../../components/Header";
 import Posts from "../../components/Posts";
 import Sidebar from "../../components/Sidebar";
+import { Settings } from "../settings/Settings";
 import Single from "../singlePost/Single";
 import Write from "../write/Write";
 import "./homepage.css";
@@ -15,7 +16,8 @@ export default function Homepage() {
       <div className="home">
         {/* <Posts/> */}
         {/* <Single/> */}
-        <Write/>
+        {/* <Write/> */}
+        <Settings/>
         {/* <Sidebar/> */}
       </div>
     </div>

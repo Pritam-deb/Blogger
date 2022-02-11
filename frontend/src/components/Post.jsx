@@ -1,42 +1,30 @@
-import React from 'react';
-import "./styles/post.css"
+import React from "react";
+import Posts from "./Posts";
+import "./styles/post.css";
 
-const Post = ({img}) => {
+const Post = ({ post }) => {
+  const PF = "http://localhost:5000/images/";
   return (
     <div className="post">
-    <img
-      className="postImg"
-      src={img}
-      alt=""
-    />
-    <div className="postInfo">
-      <div className="postCats">
-        <span className="postCat">
+      {post.photo && <img className="postImg" src={PF + post.photo} alt="" />}
+      <div className="postInfo">
+        <div className="postCats">
           {/* <Link className="link" to="/posts?cat=Music"> */}
-            Music
+          {post.categories.map((category) => (
+            <span className="postCat">{category.name}</span>
+          ))}
+          {/* </Link> */}
+        </div>
+        <span className="postTitle">
+          {/* <Link to="/post/abc" className="link"> */}
+          {post.title}
           {/* </Link> */}
         </span>
-        <span className="postCat">
-          {/* <Link className="link" to="/posts?cat=Music"> */}
-            Life
-          {/* </Link> */}
-        </span>
+        <hr />
+        <span className="postDate">{new Date(post.date).toDateString()}</span>
       </div>
-      <span className="postTitle">
-        {/* <Link to="/post/abc" className="link"> */}
-          Lorem ipsum dolor sit amet
-        {/* </Link> */}
-      </span>
-      <hr />
-      <span className="postDate">1 hour ago</span>
+      <p className="postDesc">{post.desc}</p>
     </div>
-    <p className="postDesc">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-      officia architecto deserunt deleniti? Labore ipsum aspernatur magnam
-      fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione
-      atque, exercitationem quibusdam, reiciendis odio laboriosam?
-    </p>
-  </div>
   );
 };
 

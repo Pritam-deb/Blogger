@@ -2,6 +2,7 @@
 import Header from "../../components/Header";
 import Posts from "../../components/Posts";
 import Sidebar from "../../components/Sidebar";
+import Single from "../singlePost/Single";
 import "./homepage.css";
 
 export default function Homepage() {
@@ -11,8 +12,9 @@ export default function Homepage() {
     <div>
       <Header />
       <div className="home">
-        <Posts/>
-        <Sidebar/>
+        {/* <Posts/> */}
+        <Single/>
+        {/* <Sidebar/> */}
       </div>
     </div>
   );

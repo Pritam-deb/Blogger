@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Posts from "./Posts";
 import "./styles/post.css";
 
@@ -15,11 +16,9 @@ const Post = ({ post }) => {
           ))}
           {/* </Link> */}
         </div>
-        <span className="postTitle">
-          {/* <Link to="/post/abc" className="link"> */}
-          {post.title}
-          {/* </Link> */}
-        </span>
+        <Link to={`/post/${post._id}`} className="link">
+          <span className="postTitle">{post.title}</span>
+        </Link>
         <hr />
         <span className="postDate">{new Date(post.date).toDateString()}</span>
       </div>

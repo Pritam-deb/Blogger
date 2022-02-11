@@ -2,6 +2,7 @@
 import Header from "../../components/Header";
 import Posts from "../../components/Posts";
 import Sidebar from "../../components/Sidebar";
+import Login from "../login/Login";
 import { Settings } from "../settings/Settings";
 import Single from "../singlePost/Single";
 import Write from "../write/Write";
@@ -12,12 +13,12 @@ export default function Homepage() {
   // console.log(location);
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <div className="home">
         {/* <Posts/> */}
         {/* <Single/> */}
         {/* <Write/> */}
-        <Settings/>
+        {/* <Settings/> */}
         {/* <Sidebar/> */}
       </div>
     </div>

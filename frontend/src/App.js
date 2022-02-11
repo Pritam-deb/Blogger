@@ -3,13 +3,16 @@
 //components and pages
 import NavBar from './components/NavBar';
 import Homepage from "./pages/Home/Homepage";
+import Login from './pages/login/Login';
 
 function App() {
   return (
     <div>
     
     <NavBar/>
-    <Homepage/>
+    {/* <Homepage/> */}
+    <Login/>
+
     </div>
       
     

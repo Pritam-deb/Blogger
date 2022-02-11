@@ -2,7 +2,7 @@ import "./settings.css"
 import React from 'react'
 import Sidebar from "../../components/Sidebar"
 
-export const Settings = () => {
+const Settings = () => {
   return (
     <div className="settings">
       <div className="settingsWrapper">
@@ -42,3 +42,5 @@ export const Settings = () => {
     </div>
   )
 }
+
+export default Settings;

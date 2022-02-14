@@ -13,10 +13,11 @@ const NavBar = () => {
   return (
     <div className="nav">
       <div className="navLeft">
-        <i className="navIcon fab fa-facebook-square"></i>
+        {/* <i className="navIcon fab fa-facebook-square"></i>
         <i className="navIcon fab fa-instagram-square"></i>
         <i className="navIcon fab fa-pinterest-square"></i>
-        <i className="navIcon fab fa-twitter-square"></i>
+        <i className="navIcon fab fa-twitter-square"></i> */}
+        BLOGGER
       </div>
       <div className="navCenter">
         <ul className="navList">
@@ -25,8 +26,8 @@ const NavBar = () => {
               HOME
             </Link>
           </li>
-          <li className="navListItem">ABOUT</li>
-          <li className="navListItem">CONTACT</li>
+          {/* <li className="navListItem">ABOUT</li> */}
+          {/* <li className="navListItem">CONTACT</li> */}
           <li className="navListItem">
             <Link className="link" to="/write">
               WRITE

@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Pritam-deb/Blogger.git"
+    "url": "git+https://git.heroku.com/blogger-api-nodejs.git"
   },
   "keywords": [],
   "author": "",

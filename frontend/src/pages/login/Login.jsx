@@ -26,7 +26,7 @@ const Login = () => {
     <div className="login">
       <span className="loginTitle">Login</span>
       <form className="loginForm" onSubmit={handleSubmit}>
-        <label>Email</label>
+        <label>Username</label>
         <input
           className="loginInput"
           type="text"

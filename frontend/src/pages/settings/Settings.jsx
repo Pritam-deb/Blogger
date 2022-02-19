@@ -1,5 +1,5 @@
 import "./settings.css";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import Sidebar from "../../components/Sidebar";
 import { Context } from "../../context/Context";
 import axios from "axios";
@@ -12,6 +12,10 @@ const Settings = () => {
   const [success, setSuccess] = useState(false);
 
   const { user, dispatch } = useContext(Context);
+  const userRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+
   const PF = "http://localhost:5000/images/";
 
   const handleSubmit = async (e) => {
@@ -42,6 +46,12 @@ const Settings = () => {
     }
   };
 
+  useEffect(() => {
+    userRef.current.value = user.username;
+    emailRef.current.value = user.email;
+    passwordRef.current.value = user.password;
+  }, []);
+
   return (
     <div className="settings">
       <div className="settingsWrapper">
@@ -70,8 +80,9 @@ const Settings = () => {
           <label>Username</label>
           <input
             type="text"
-            placeholder="Enter here...."
+            placeholder="Enter name here...."
             name="name"
+            ref={userRef}
             onChange={(e) => setUsername(e.target.value)}
           />
           <label>Email</label>
@@ -79,6 +90,7 @@ const Settings = () => {
             type="email"
             placeholder="Enter email here...."
             name="email"
+            ref={emailRef}
             onChange={(e) => setEmail(e.target.value)}
           />
           <label>Password</label>
@@ -86,6 +98,7 @@ const Settings = () => {
             type="password"
             placeholder="Password"
             name="password"
+            ref={passwordRef}
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className="settingsSubmitButton" type="submit">
